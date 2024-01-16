@@ -24,7 +24,7 @@ const fnArr = () => {
 // 4 - this keyword
 let user = {
     userName : "Divyanshu Coder",
-    rc1: () => {  // arrow fn doesnt have its own this. it is going to use its parent this
+    rc1: () => {  
         console.log("Subscribe to  " + this.userName);
     },
     rc2(){
@@ -34,3 +34,27 @@ let user = {
 user.rc1();// Subscribe to  undefined
 user.rc2();// Subscribe to  Divyanshu Coder
 
+
+// arrow fn doesnt have its own this. it is going to use its parent this i.e they are going to take the
+// value of the lexicle environment where they are enclosed.
+
+// arrow fn don't provide their own binding instead it retains this value of the enclosing lexicle context
+const obj = {
+    a: 10,
+    x: () => {              // this arrow fn is method of this object
+        console.log(this);
+    }
+}
+obj.x(); // {}  . this keyword will behave like it is in the global space. value will be window object
+
+
+const obj2 = {
+    a: 10,
+    x: function () {
+        const y = () => {       // now this arrow fn is not the method of this object but this arrow fn 
+            console.log(this);  // is inside another fn which is the method of this object
+        }
+        y();
+    }
+}
+obj2.x(); // { a: 10, x: [Function: x] }
