@@ -37,3 +37,13 @@ obj.x(); //  { a: 10, x: [Function: x] }
 
 
 // this inside arrow fn  :- see 3Arrow.js
+
+
+// In an object method, this refers to the object.
+// Alone, this refers to the global object.
+// In a function, this refers to the global object.
+// In a function, in strict mode, this is undefined.
+// In an event, this refers to the element that received the event.
+// Methods like call(), apply(), and bind() can refer this to any object.
+
+// this is not a variable. It is a keyword. You cannot change the value of this.
