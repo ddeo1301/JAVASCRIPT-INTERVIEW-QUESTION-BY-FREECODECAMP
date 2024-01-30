@@ -1,4 +1,4 @@
-// REDUCE
+// REDUCE:- method of array object used to reduce the arrray to one single value
 
 const arr1 = [2, 3, 4, 5];
 const mul = arr1.reduce((a, b) => {  // reducer fn accepts 2 params... 1st is accumulated value......2nd is
@@ -34,18 +34,26 @@ console.log(totalGoals); // 240
 // MAP and FOREACH and FILTER
 // map and filter new array m store hga while forEach usi array m km krega
 
-// MAP
+// MAP :- takes a callback fn and run it against every element on the array and generate new array based 
+// on existing array. MAP returns an array. the provided callback to map modifies the array element and 
+// save them into the ew array upon completion that array get returned as the mapped arrays.
 const numbers = [2, 4, 6, 8, 10];
 const newArray = numbers.map((num) => num * 2);
 console.log(newArray);  // [ 4, 8, 12, 16, 20 ]
 
-// FOREACH
+// FOREACH :- takes a callback fn and run that callback fn on each element of array one by one. 
+// forEach just loop over the array and executes the callback 
+// array.forEach(function(currentValue, index, array) {
+//     
+//   }, thisArg);
 numbers.forEach((num, idx) => numbers[idx] *= 2);
 console.log(numbers);  // [ 4, 8, 12, 16, 20 ]
 numbers.forEach((num) => console.log(num * 2)); // 8  16   24    32   40
 console.log(numbers); // [ 4, 8, 12, 16, 20 ]
 
-// FILTER
+// FILTER:- let us provide a callback for every element and return filtered array. 
+// filter executes the callback and check its return value. if the value is true element returns in the
+// resulting array but if the return value is false it will be removed for the resulting array
 const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 const newFilter = arr.filter((ele) => ele % 2 == 0);
 console.log(newFilter); // [ 2, 4, 6, 8, 10 ]

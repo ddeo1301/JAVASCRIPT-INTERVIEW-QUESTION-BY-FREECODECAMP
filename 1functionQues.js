@@ -53,37 +53,3 @@ for(let i = 0; i < 5; i++){
     }, i*1000)                 // for var being function scope it would have printed 5   5   5   5    5
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
