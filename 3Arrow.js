@@ -20,6 +20,12 @@ const fnArr = () => {
     console.log(arguments); // we cannot have arguments keyword inside an arrow function
 }
 //fnArr(1,2,3);
+// The reason why you cannot use the arguments keyword inside an arrow function is that arrow functions do not
+// have their own this value, and they also do not have access to the arguments object.
+// arguments object is a local variable available within all non-arrow functions. It contains an array-like object
+// of the arguments passed to the function. However, arrow functions do not have their own arguments object. 
+// Instead, they inherit the arguments object from their closest non-arrow function ancestor.
+
 
 // 4 - this keyword
 let user = {
@@ -33,6 +39,18 @@ let user = {
 }
 user.rc1();// Subscribe to  undefined
 user.rc2();// Subscribe to  Divyanshu Coder
+
+function Person() {
+    this.age = 0;
+  
+    setInterval(() => {
+      this.age++; // `this` properly refers to the Person instance
+      console.log(this.age);
+    }, 1000);
+  }
+  
+  const p = new Person();
+  
 
 
 // arrow fn doesnt have its own this. it is going to use its parent this i.e they are going to take the
