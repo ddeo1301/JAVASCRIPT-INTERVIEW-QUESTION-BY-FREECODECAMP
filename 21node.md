@@ -25,30 +25,30 @@ Q2) what is middleware
   - Middleware in Node.js is a function that acts as an intermediary between the request and response cycle of a web application. It allows you to modify, add, or remove data from the request and response objects before they reach the final destination.
 In simple terms, middleware is like a gatekeeper that checks and processes requests before they are handled by the main application logic.           
 
-  - Request Handling: When a request comes into your application (like someone visiting a web page), it goes through a chain of middleware functions.
-  - Tasks in Order: Each middleware function can do something with the request, such as:
-  Logging information
-  Checking user authentication
-  Parsing request data (like converting JSON data)
-  Handling errors
-  - Passing Control: After a middleware function does its job, it can pass control to the next function in the chain by calling next().
-  - Response: Finally, after going through all the necessary middleware, the request reaches the end where a response is sent back to the user.
+      - Request Handling: When a request comes into your application (like someone visiting a web page), it goes through a chain of middleware functions.
+      - Tasks in Order: Each middleware function can do something with the request, such as:
+              Logging information
+              Checking user authentication
+              Parsing request data (like converting JSON data)
+              Handling errors
+      - Passing Control: After a middleware function does its job, it can pass control to the next function in the chain by calling next().
+      - Response: Finally, after going through all the necessary middleware, the request reaches the end where a response is sent back to the user.
 
 
 Q3) what are some commonly  used timing feature of node .js ?
- - setTimeout(): execute a fn after specific delay. If you want to print a message after 2 seconds, you use setTimeout.
+      - setTimeout(): execute a fn after specific delay. If you want to print a message after 2 seconds, you use setTimeout.
 
- - clearTimeout(): Cancels a timeout that was previously set with setTimeout. If you set a timeout to print a message but decide to cancel it before it runs, you use clearTimeout.
+      - clearTimeout(): Cancels a timeout that was previously set with setTimeout. If you set a timeout to print a message but decide to cancel it before it runs, you use clearTimeout.
 
- - setInterval(): Repeatedly executes a function at specified intervals. If you want to print a message every 3 seconds, you use setInterval
+      - setInterval(): Repeatedly executes a function at specified intervals. If you want to print a message every 3 seconds, you use setInterval
 
- - clearInterval(): Stops an interval that was previously set with setInterval. If you set an interval to print a message every 3 seconds but decide to stop it after some time, you use clearInterval.
+      - clearInterval(): Stops an interval that was previously set with setInterval. If you set an interval to print a message every 3 seconds but decide to stop it after some time, you use clearInterval.
 
- - setImmediate(): Executes a function immediately after the current event loop completes. If you want to run a function as soon as possible but after the current code execution is finished, you use setImmediate.
+      - setImmediate(): Executes a function immediately after the current event loop completes. If you want to run a function as soon as possible but after the current code execution is finished, you use setImmediate.
 
- - clearImmediate(): Cancels an immediate action that was previously set with setImmediate. If you set an immediate to run a function but decide to cancel it before it runs, you use clearImmediate.
+      - clearImmediate(): Cancels an immediate action that was previously set with setImmediate. If you set an immediate to run a function but decide to cancel it before it runs, you use clearImmediate.
 
- - process.nextTick(): This feature allows you to execute a callback function on the next pass of the event loop. It's useful for deferring a task until the next loop, but still before any I/O events.
+      - process.nextTick(): This feature allows you to execute a callback function on the next pass of the event loop. It's useful for deferring a task until the next loop, but still before any I/O events.
 
 Q4) what is Node.js?
  - Node.js is an open-source, cross-platform JavaScript runtime environment that executes JavaScript code outside a web browser.
@@ -102,7 +102,7 @@ Q6) what is event loop?
       console.log('End');
 
 
-Q7) what is rest API? How does it work?
+Q7) what is REST API? How does it work?
  - A REST API, which stands for Representational State Transfer Application Programming Interface, is a standardized way for software applications to communicate over the internet. When a client, like a web browser or a program, requests information from a server using a REST API, the server sends back the current state of the requested resource in a standardized format. This format allows the client to easily interpret and use the information provided by the server.
  - In simple terms, a REST API works like a mediator between different software systems, enabling them to interact efficiently. It follows specific guidelines, such as using HTTP requests like GET, POST, PUT, and DELETE to perform actions like reading, creating, updating, and deleting data. The key principles of a REST API include being stateless, meaning each request contains all the necessary information, and having cacheable data to improve performance.
  
