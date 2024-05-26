@@ -1,7 +1,7 @@
 //CURRYING
 // currying is a function that takes 1 argument at a time and returns a new fn expecting the next argument
-// currying is a technique in JavaScript where a function with multiple parameters is transformed into a 
-//sequence of functions, each taking a single parameter. 
+// Technique of transforming a function that takes multiple arguments into a sequence of functions, each with a
+//  single argument.
 function f(a){
     return function(b){
         return `${a}  ${b}`;
@@ -9,6 +9,17 @@ function f(a){
 }
 console.log(f(5));     // [Function (anonymous)]
 console.log(f(5)(6));  // 5  6
+
+
+function add(x) {
+    return function(y) {
+      return function(z) {
+        return x + y + z;
+      }
+    }
+  }
+add(1)(2)(3); // returns 6
+  
 
 
 // why should we use currying

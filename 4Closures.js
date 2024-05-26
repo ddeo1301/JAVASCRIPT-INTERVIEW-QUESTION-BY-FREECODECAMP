@@ -24,6 +24,7 @@ function xx(){
     return function y(){
         console.log(a);
     }
+
 }
 var z = xx();
 console.log(z);// [Function: y]

@@ -93,6 +93,13 @@ Q6) what is event loop?
  -  Repeat: The event loop continues this process, ensuring that the call stack is always empty before taking the next function from the callback queue.
 
   In essence, the event loop orchestrates the flow of tasks in JavaScript, ensuring that asynchronous operations are handled effectively without blocking the main thread, thus enabling the application to remain responsive.
+      console.log('Start');
+
+      setTimeout(() => {
+          console.log('Timeout callback');
+      }, 2000);
+
+      console.log('End');
 
 
 Q7) what is rest API? How does it work?

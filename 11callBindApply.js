@@ -1,3 +1,41 @@
+// call(): Invokes a function with a given this value and arguments provided individually.
+//     func.call(thisArg, arg1, arg2, ...)
+        function multiply(a, b) {
+            return a * b;
+        }
+        
+        const result1 = multiply.call(null, 2, 3); // 2 * 3 = 6
+        const result2 = multiply.call(null, 4, 5); // 4 * 5 = 20
+        console.log(result1); // Output: 6
+        console.log(result2); // Output: 20
+// When the function doesn't use this, specifying null makes it clear that the function does not rely on any 
+// specific context.
+  
+
+// apply(): Invokes a function with a given this value and arguments provided as an array.
+//     func.apply(thisArg, [argsArray])
+        const result3 = multiply.apply(null, [2, 3]); // 2 * 3 = 6
+        const result4 = multiply.apply(null, [4, 5]); // 4 * 5 = 20
+
+        console.log(result3); // Output: 6
+        console.log(result4); // Output: 20
+
+
+// bind(): Creates a new function with a fixed this value and optionally pre-set arguments
+//         func.bind(thisArg, arg1, arg2, ...)
+const multiplyBy2 = multiply.bind(null, 2); // Pre-set the first argument to 2
+
+const result5 = multiplyBy2(3); // 2 * 3 = 6
+const result6 = multiplyBy2(5); // 2 * 5 = 10
+console.log(result5); // Output: 6
+console.log(result6); // Output: 10
+
+
+
+
+
+
+
 let name = {
     firstName: "Divyanshu",
     lastName: "Deo",
@@ -39,3 +77,5 @@ let printMyName = printFullName2.bind(name2, "Bhagalpur", "Bihar"); // instead o
 // be called later
 console.log(printMyName);  // [Function: bound printFullName2]
 printMyName(); // Swati surbhi from Bhagalpur, Bihar
+
+

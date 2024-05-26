@@ -12,6 +12,32 @@ function processData(data) {
     console.log('Data:', data);
 }
 fetchData(processData);
+// -------------------------------------------------------------------------------------
+
+function findMax(a, b, callback) {
+    return callback(a, b);
+  }
+  
+  function maxValue(x, y) {
+    return x > y ? x : y;
+  }
+  
+  let max = findMax(10, 20, maxValue);
+  console.log(max); // Output: 20
+  
+  // callback function in JavaScript is a function that is passed as an argument to another function and is executed
+  // after the first function has completed its task. It allows for asynchronous execution, ensuring that certain 
+  // code runs only after a specific task is finished. Callback functions are commonly used in scenarios like 
+  // handling asynchronous events such as network requests or file I/O.
+  function calculateSquare(num, callback) {
+    return callback(num);
+  }
+  function square(x) {
+    return x * x;
+  }
+  let result = calculateSquare(5, square);
+  console.log(result); // Output: 25
+    //whenever we return a function from another fn, we need to assign to another variable and invoke that.
 
 // CALLBACK HELL (PYRAMID OF DOOM)
 // INVERSION OF CONTROL
@@ -42,8 +68,27 @@ fetchData()
     .then(data => console.log('Data:', data))
     .catch(error => console.error('Error:', error));
 
+// -----------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------
+let promise = new Promise(function(resolve, reject) {
+    resolve(2);
+  });
+  
+  promise
+    .then(function(result) {
+      return result * 2;
+    })
+    .then(function(result) {
+      return result * 2;
+    })
+    .then(function(result) {
+      console.log(result); // Output: 8
+    });
+
 
 // ASYNC AWAIT
+// handle asynchronous operations in a more synchronous and readable way. 
+// Async/Await is a way to handle asynchronous operations in programming. 
 // async and await are keywords used to work with promises in a more synchronous-looking way.
 // async is used before a function declaration to indicate that the function returns a promise.
 // await is used inside an async function to wait for a promise to resolve before moving on.
@@ -64,6 +109,20 @@ async function processData() {
     }
 }
 processData();
+// ----------------------------------------------------------
+// ----------------------------------------------------------
+function calculateSquareAsync(x, callback) {
+    setTimeout(() => {
+        callback(x * x);
+    }, 1000); // Simulate a delay of 1 second
+}
+
+console.log('Start');
+calculateSquareAsync(5, (result) => {
+    console.log('Square is:', result); // Output: Square is: 25 (after 1 second)
+});
+console.log('End');
+
 // callbacks are functions passed as arguments to handle asynchronous operations, promises provide a 
 // cleaner way to work with asynchronous code, and async/await syntax simplifies the use of promises,
 // making code look more like traditional synchronous code.  
