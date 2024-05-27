@@ -107,3 +107,5 @@ Q7) what is REST API? How does it work?
  - In simple terms, a REST API works like a mediator between different software systems, enabling them to interact efficiently. It follows specific guidelines, such as using HTTP requests like GET, POST, PUT, and DELETE to perform actions like reading, creating, updating, and deleting data. The key principles of a REST API include being stateless, meaning each request contains all the necessary information, and having cacheable data to improve performance.
  
 Overall, a REST API allows different software applications to communicate seamlessly, making it easier for them to share and exchange information in a secure and efficient manner.
+
+

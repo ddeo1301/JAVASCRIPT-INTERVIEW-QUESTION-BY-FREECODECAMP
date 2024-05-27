@@ -63,4 +63,47 @@ app.get('/items/:id', (req, res) => {
   });
   
   // ... (remaining code)
-  
+
+
+
+
+// EXPLAIN ROUTING
+// Routing in Node.js is the process of determining how an application responds to client requests to different 
+// URLs (endpoints). It involves mapping HTTP methods (GET, POST, PUT, DELETE, etc.) to specific functions that 
+// handle those requests and send back appropriate responses
+
+const express = require('express');
+const app = express();
+const port = 3000;
+
+// Route for GET request to the homepage. Handles GET requests to the root URL(/), responding with a welcome message.
+app.get('/', (req, res) => {
+  res.send('Welcome to the homepage!');
+});
+
+// Route for GET request to the /about page. Handles GET requests to the /about URL, responding with an about message.
+app.get('/about', (req, res) => {
+  res.send('This is the about page.');
+});
+
+// Route for POST request to /submit. handles POST requests to the /submit URL, responding with a submission confirmation.
+app.post('/submit', (req, res) => {
+  res.send('Form submitted!');
+});
+
+// Start the server
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
+
+ 
+
+
+
+// Express.js is like a toolkit that helps you build web applications and APIs with Node.js more easily and
+// efficiently.
+
+// KEY CONCEPT IN EXPRESS
+// Routes: Define how your server responds to different URL requests.
+// Middleware: Functions that process requests before they reach your route handlers.
+// Request and Response: Objects that represent the incoming request and the outgoing response.

@@ -70,3 +70,16 @@ DIFFERENCE BETWEEN AUTHENCTICATION AND AUTHORIZATION
             app.get('/admin', checkAdmin, (req, res) => {
             res.send('Admin panel');
             });
+
+
+
+
+HASHING
+ - Hashing is the process of converting a password into a fixed-length string of characters using a mathematical function. This one-way process ensures that the original password cannot be retrieved from the hash.
+ - The same input will always produce the same output.
+
+SALTING
+ - Salting is the addition of random data (called a salt) to the password before hashing. This ensures that even if two users have the same password, their hashes will be different. Salting protects against attacks like rainbow tables that aim to reverse hashes.
+
+BCRYPT
+ - Bcrypt is a specific hashing algorithm designed for password storage. It uses a salt and a cost factor that determines how computationally expensive the hash function is. This makes bcrypt slow, which is a good thing for security - it slows down attackers trying to guess passwords.
