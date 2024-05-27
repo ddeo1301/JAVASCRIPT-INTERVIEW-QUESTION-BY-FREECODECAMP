@@ -30,19 +30,19 @@ Q3) What is Event Driven Architecture (EDA)?
   - Listening for Events: You set up listeners that wait for these events and then run specific functions when the events are emitted.
 
 
-// loads the events module, and EventEmitter is used to create an event emitter.
-  const EventEmitter = require('events'); 
+        // loads the events module, and EventEmitter is used to create an event emitter.
+        const EventEmitter = require('events'); 
 
-// Create an instance of EventEmitter. 
-const myEmitter = new EventEmitter();
+        // Create an instance of EventEmitter. 
+        const myEmitter = new EventEmitter();
 
-// Set up a listener for the 'greet' event. When this event is emitted, the provided function runs, printing a greeting message.
-myEmitter.on('greet', (name) => {
-    console.log(`Hello, ${name}!`);
-});
+        // Set up a listener for the 'greet' event. When this event is emitted, the provided function runs, printing a greeting message.
+        myEmitter.on('greet', (name) => {
+            console.log(`Hello, ${name}!`);
+        });
 
-// Emit the 'greet' event. emits the 'greet' event and passes 'Alice' as the argument to the event listener.
-myEmitter.emit('greet', 'Alice');
+        // Emit the 'greet' event. emits the 'greet' event and passes 'Alice' as the argument to the event listener.
+        myEmitter.emit('greet', 'Alice');
 
 
 

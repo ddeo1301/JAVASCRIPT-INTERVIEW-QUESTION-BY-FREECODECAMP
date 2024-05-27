@@ -17,11 +17,11 @@ JSON Web Tokens are a popular way to implement authentication and authorization 
 
             // Verify a token
             jwt.verify(token, 'secret_key', (err, decodedToken) => {
-            if (err) {
-                console.error('Token verification failed');
-            } else {
-                console.log('Decoded token:', decodedToken);
-            }
+                if (err) {
+                    console.error('Token verification failed');
+                } else {
+                    console.log('Decoded token:', decodedToken);
+                }
             });
 
 
@@ -38,16 +38,16 @@ AUTHORIZATION BASED PRACTISES
     - Middleware: Use middleware functions to check a user’s permissions before granting access to a route or resource.
     - Access Tokens: Issue access tokens with user permissions encoded. Verify these tokens on the server-side for every request.
             function checkAdmin(req, res, next) {
-            if (req.user && req.user.role === 'admin') {
-                next();
-            } else {
-                res.status(403).json({ message: 'Access denied' });
-            }
+                if (req.user && req.user.role === 'admin') {
+                    next();
+                } else {
+                    res.status(403).json({ message: 'Access denied' });
+                }
             }
 
             // Protect a route
             app.get('/admin', checkAdmin, (req, res) => {
-            res.send('Admin panel');
+                res.send('Admin panel');
             });
 
 
@@ -58,17 +58,18 @@ DIFFERENCE BETWEEN AUTHENCTICATION AND AUTHORIZATION
 
     - Authentication: You prove your identity to the bouncer at a club by showing your ID.
     - Authorization: Once inside, whether you can access the VIP area or just stay in the general area depends on the stamp or wristband you receive.
+
             function checkAdmin(req, res, next) {
-            if (req.user && req.user.role === 'admin') {
-                next();
-            } else {
-                res.status(403).json({ message: 'Access denied' });
-            }
+                if (req.user && req.user.role === 'admin') {
+                    next();
+                } else {
+                    res.status(403).json({ message: 'Access denied' });
+                }
             }
 
             // Protect a route
             app.get('/admin', checkAdmin, (req, res) => {
-            res.send('Admin panel');
+                res.send('Admin panel');
             });
 
 
