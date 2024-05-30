@@ -20,38 +20,39 @@ Q1) what is REACT and how this work behind the scene?
             - Props are immutable, meaning they cannot be changed once set by the parent component.
             - Props are used to pass data from a parent component to a child component, allowing for a unidirectional data flow.
 
-                // Using State
-                import React, { useState } from 'react';
+                    // Using State
+                    import React, { useState } from 'react';
 
-                function Counter() {
-                const [count, setCount] = useState(0);
+                    function Counter() {
+                    const [count, setCount] = useState(0);
 
-                function handleClick() {
-                    setCount(count + 1);
-                }
+                    function handleClick() {
+                        setCount(count + 1);
+                    }
 
-                return (
-                    <div>
-                    <p>Count: {count}</p>
-                    <button onClick={handleClick}>Increment</button>
-                    </div>
-                );
-                }
+                    return (
+                        <div>
+                        <p>Count: {count}</p>
+                        <button onClick={handleClick}>Increment</button>
+                        </div>
+                    );
+                    }
 
-                // Using Props
-                import React from 'react';
+                    // Using Props
+                    import React from 'react';
 
-                function Welcome(props) {
-                return <h1>Hello, {props.name}!</h1>;
-                }
+                    function Welcome(props) {
+                    return <h1>Hello, {props.name}!</h1>;
+                    }
 
-                function ParentComponent() {
-                return (
-                    <div>
-                    <Welcome name="John" />
-                    </div>
-                );
-                }
+                    function ParentComponent() {
+                    return (
+                        <div>
+                        <Welcome name="John" />
+                        </div>
+                    );
+                    }
+                    
     In the first example, the Counter component uses state to manage its internal count, which can be updated when the button is clicked. In the second example, the Welcome component uses props to display a personalized greeting, which is passed from the ParentComponent.
 
     4) Virtual DOM:
