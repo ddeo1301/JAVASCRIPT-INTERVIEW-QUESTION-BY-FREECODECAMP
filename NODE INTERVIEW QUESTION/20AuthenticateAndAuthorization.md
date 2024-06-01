@@ -30,14 +30,14 @@ JSON Web Tokens are a popular way to implement authentication and authorization 
 AUTHORIZATION
   - Authorization is about checking what a user is allowed to do. Once a user is authenticated, the system needs to determine what resources the user can access or what actions they can perform. 
   - In Node.js, authorization can be managed using roles and permissions. For example:
-        - User roles: Users are assigned roles (e.g., admin, editor, viewer).
-        - Permissions: Each role has specific permissions (e.g., admins can delete content, editors can modify content, viewers can only read content).
-        - Check permissions: When a user tries to perform an action, the system checks if their role has the required permissions.
+       - User roles: Users are assigned roles (e.g., admin, editor, viewer).
+       - Permissions: Each role has specific permissions (e.g., admins can delete content, editors can modify content, viewers can only read content).
+       - Check permissions: When a user tries to perform an action, the system checks if their role has the required permissions.
 
 AUTHORIZATION BASED PRACTISES
    - Role-Based Access Control (RBAC): Implement RBAC to assign roles (e.g., admin, user) to users and restrict access based on their roles.
-    - Middleware: Use middleware functions to check a user’s permissions before granting access to a route or resource.
-    - Access Tokens: Issue access tokens with user permissions encoded. Verify these tokens on the server-side for every request.
+   - Middleware: Use middleware functions to check a user’s permissions before granting access to a route or resource.
+   - Access Tokens: Issue access tokens with user permissions encoded. Verify these tokens on the server-side for every request.
 
             function checkAdmin(req, res, next) {
                 if (req.user && req.user.role === 'admin') {
@@ -56,10 +56,10 @@ AUTHORIZATION BASED PRACTISES
 
 DIFFERENCE BETWEEN AUTHENCTICATION AND AUTHORIZATION
    - Authentication is about verifying identity (who the user is).
-    - Authorization is about verifying permissions (what the user can do).
+   - Authorization is about verifying permissions (what the user can do).
 
-    - Authentication: You prove your identity to the bouncer at a club by showing your ID.
-    - Authorization: Once inside, whether you can access the VIP area or just stay in the general area depends on the stamp or wristband you receive.
+   - Authentication: You prove your identity to the bouncer at a club by showing your ID.
+   - Authorization: Once inside, whether you can access the VIP area or just stay in the general area depends on the stamp or wristband you receive.
 
             function checkAdmin(req, res, next) {
                 if (req.user && req.user.role === 'admin') {
@@ -78,11 +78,11 @@ DIFFERENCE BETWEEN AUTHENCTICATION AND AUTHORIZATION
 
 
 HASHING
- - Hashing is the process of converting a password into a fixed-length string of characters using a mathematical function. This one-way process ensures that the original password cannot be retrieved from the hash.
- - The same input will always produce the same output.
+  - Hashing is the process of converting a password into a fixed-length string of characters using a mathematical function. This one-way process ensures that the original password cannot be retrieved from the hash.
+  - The same input will always produce the same output.
 
 SALTING
- - Salting is the addition of random data (called a salt) to the password before hashing. This ensures that even if two users have the same password, their hashes will be different. Salting protects against attacks like rainbow tables that aim to reverse hashes.
+  - Salting is the addition of random data (called a salt) to the password before hashing. This ensures that even if two users have the same password, their hashes will be different. Salting protects against attacks like rainbow tables that aim to reverse hashes.
 
 BCRYPT
  - Bcrypt is a specific hashing algorithm designed for password storage. It uses a salt and a cost factor that determines how computationally expensive the hash function is. This makes bcrypt slow, which is a good thing for security - it slows down attackers trying to guess passwords.
