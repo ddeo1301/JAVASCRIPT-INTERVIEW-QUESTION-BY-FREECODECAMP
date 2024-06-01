@@ -1,8 +1,8 @@
 AUTHENTICATION
   - Authentication is about verifying who a user is. When a user tries to log into a system, the system needs to check their identity. This usually involves:
-    - User provides credentials: The user enters their username and password.
-    - System verifies credentials: The system checks if these credentials match what's stored in the database.
-    - User is authenticated: If the credentials are correct, the user is authenticated and can access the system.
+   - User provides credentials: The user enters their username and password.
+   - System verifies credentials: The system checks if these credentials match what's stored in the database.
+   - User is authenticated: If the credentials are correct, the user is authenticated and can access the system.
 
 AUTHENTICATION BEST PRACTISES
    - Use HTTPS: Always use HTTPS to secure data transmission between the client and server, especially when handling login credentials.
