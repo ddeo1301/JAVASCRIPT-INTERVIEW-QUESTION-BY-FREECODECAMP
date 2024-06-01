@@ -1,4 +1,4 @@
-What is Life cycle method in react with proper explanation?
+Q1) What is Life cycle method in react with proper explanation?
  - In React, a life cycle method refers to special methods in a React component that get called at different stages of the component's life cycle. The life cycle of a React component can be divided into three main phases:
     1) Mounting: When the component is being created and inserted into the DOM.
     2) Updating: When the component is being re-rendered as a result of changes to its state or props.
