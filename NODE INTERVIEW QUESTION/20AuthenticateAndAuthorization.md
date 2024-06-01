@@ -5,12 +5,13 @@ AUTHENTICATION
     - User is authenticated: If the credentials are correct, the user is authenticated and can access the system.
 
 AUTHENTICATION BEST PRACTISES
-    - Use HTTPS: Always use HTTPS to secure data transmission between the client and server, especially when handling login credentials.
+   - Use HTTPS: Always use HTTPS to secure data transmission between the client and server, especially when handling login credentials.
     - Password Hashing: Store passwords securely by hashing and salting them. Libraries like bcrypt can help with this.
     - Multi-Factor Authentication (MFA): Implement MFA to add an extra layer of security. This could involve something the user knows (password) and something they have (e.g., a mobile app token).
     - Session Management: Use secure and random session tokens to manage user sessions.
 
 JSON Web Tokens are a popular way to implement authentication and authorization in Node.js. Users receive a token upon login, which they include in subsequent requests. 
+
             const jwt = require('jsonwebtoken');
             // Create a token
             const token = jwt.sign({ userId: 1 }, 'secret_key', { expiresIn: '1h' });
@@ -34,9 +35,10 @@ AUTHORIZATION
         - Check permissions: When a user tries to perform an action, the system checks if their role has the required permissions.
 
 AUTHORIZATION BASED PRACTISES
-    - Role-Based Access Control (RBAC): Implement RBAC to assign roles (e.g., admin, user) to users and restrict access based on their roles.
+   - Role-Based Access Control (RBAC): Implement RBAC to assign roles (e.g., admin, user) to users and restrict access based on their roles.
     - Middleware: Use middleware functions to check a user’s permissions before granting access to a route or resource.
     - Access Tokens: Issue access tokens with user permissions encoded. Verify these tokens on the server-side for every request.
+
             function checkAdmin(req, res, next) {
                 if (req.user && req.user.role === 'admin') {
                     next();
@@ -53,7 +55,7 @@ AUTHORIZATION BASED PRACTISES
 
 
 DIFFERENCE BETWEEN AUTHENCTICATION AND AUTHORIZATION
-    - Authentication is about verifying identity (who the user is).
+   - Authentication is about verifying identity (who the user is).
     - Authorization is about verifying permissions (what the user can do).
 
     - Authentication: You prove your identity to the bouncer at a club by showing your ID.
