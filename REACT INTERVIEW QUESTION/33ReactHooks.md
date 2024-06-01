@@ -1,5 +1,6 @@
 Q) DIFFERENT TYPES OF HOOKS IN REACT
   - React Hooks are functions in React that allow functional components to use state and other React features without the need for class components. 
+
      1) USE STATE HOOK
          - used to add state to functional components. 
          - It allows you to declare a state variable and its corresponding update function.
@@ -11,14 +12,14 @@ Q) DIFFERENT TYPES OF HOOKS IN REACT
                         import React, { useState } from 'react';
 
                         function Counter() {
-                        const [count, setCount] = useState(0);
+                            const [count, setCount] = useState(0);
 
-                        return (
-                            <div>
-                            <p>You clicked {count} times</p>
-                            <button onClick={() => setCount(count + 1)}>Click me</button>
-                            </div>
-                        );
+                            return (
+                                <div>
+                                <p>You clicked {count} times</p>
+                                <button onClick={() => setCount(count + 1)}>Click me</button>
+                                </div>
+                            );
                         }
 
          - Functional Update :-  If updating state based on the previous state, use a function
@@ -39,9 +40,9 @@ Q) DIFFERENT TYPES OF HOOKS IN REACT
 
                     useEffect(() => {
                     // effect
-                    return () => {
-                        // cleanup
-                    };
+                        return () => {
+                            // cleanup
+                        };
                     }, [dependencies]);
 
          - useEffect runs after every render by default. You can control when it runs by passing an array of 
@@ -50,36 +51,36 @@ Q) DIFFERENT TYPES OF HOOKS IN REACT
                         import React, { useEffect, useState } from 'react';
 
                         function DataFetcher() {
-                        const [data, setData] = useState(null);
+                            const [data, setData] = useState(null);
 
-                        useEffect(() => {
-                            fetch('https://api.example.com/data')
-                            .then(response => response.json())
-                            .then(data => setData(data));
-                        }, []); // Runs only once
+                            useEffect(() => {
+                                fetch('https://api.example.com/data')
+                                .then(response => response.json())
+                                .then(data => setData(data));
+                            }, []); // Runs only once
 
-                        return <div>{data ? data : 'Loading...'}</div>;
+                            return <div>{data ? data : 'Loading...'}</div>;
                         }
 
          - Conditional Effects: Only run when specific values change
 
                         useEffect(() => {
-                        // effect
+                            // effect
                         }, [someValue]);
 
 
          - Cleanup: Clean up side effects to avoid memory leaks:
 
                         useEffect(() => {
-                        const subscription = subscribeToSomeService();
-                        return () => {
-                            subscription.unsubscribe();
-                        };
+                            const subscription = subscribeToSomeService();
+                                return () => {
+                                    subscription.unsubscribe();
+                                };
                         }, []);
 
 
 
-     3) USEREF HOOKS
+     3) USE REF HOOKS
           - used to create a mutable reference to a DOM element or a value that persists across renders. 
           - It returns an object with a current property that can be used to access the referenced value.
 
@@ -90,13 +91,13 @@ Q) DIFFERENT TYPES OF HOOKS IN REACT
                     import React, { useRef, useEffect } from 'react';
 
                     function FocusInput() {
-                    const inputRef = useRef(null);
+                        const inputRef = useRef(null);
 
-                    useEffect(() => {
-                        inputRef.current.focus();
-                    }, []);
+                        useEffect(() => {
+                            inputRef.current.focus();
+                        }, []);
 
-                    return <input ref={inputRef} />;
+                        return <input ref={inputRef} />;
                     }
 
        - Storing Mutable Values: Store any mutable value without causing re-renders:
@@ -108,11 +109,11 @@ Q) DIFFERENT TYPES OF HOOKS IN REACT
 
                 const divRef = useRef(null);
                 useEffect(() => {
-                console.log(divRef.current); // Access the DOM element
+                    console.log(divRef.current); // Access the DOM element
                 }, []);
 
 
-     4) USECONTEXT HOOKS
+     4) USE CONTEXT HOOKS
           - used to access context in functional components. 
           - It allows you to consume context without having to wrap the component tree with a context provider. 
           - useContext takes a context object as an argument and returns the current context value. 
@@ -120,7 +121,79 @@ Q) DIFFERENT TYPES OF HOOKS IN REACT
                 const value = useContext(MyContext);
                 useContext takes a context object and returns the current context value.
 
-                        
+                            import React, { useContext } from 'react';
+
+                            const MyContext = React.createContext();
+
+                            function Display() {
+                                const value = useContext(MyContext);
+                                return <div>{value}</div>;
+                            }
+
+                            function App() {
+                                return (
+                                    <MyContext.Provider value="Hello, World!">
+                                    <Display />
+                                    </MyContext.Provider>
+                                );
+                            }
+
+         - Multiple Contexts: Use multiple contexts by calling useContext multiple times:
+
+                            const user = useContext(UserContext);
+                            const theme = useContext(ThemeContext);
+
+
+    5) USE REDUCER HOOKS  
+         - useReducer hook is an alternative to the useState hook for managing complex state logic. 
+         - It is based on the reducer pattern and allows US to manage state updates using a reducer function. 
+         - useReducer takes two arguments: a reducer function and an initial state value. 
+         - It returns the current state and a dispatch function.    
+
+                const [state, dispatch] = useReducer(reducer, initialState);
+
+         useReducer accepts a reducer function and an initial state, returning the current state and a dispatch function to trigger state changes.  
+
+                        import React, { useReducer } from 'react';
+
+                        const initialState = { count: 0 };
+
+                        function reducer(state, action) {
+                            switch (action.type) {
+                                case 'increment':
+                                return { count: state.count + 1 };
+                                case 'decrement':
+                                return { count: state.count - 1 };
+                                default:
+                                throw new Error();
+                            }
+                        }
+
+                        function Counter() {
+                            const [state, dispatch] = useReducer(reducer, initialState);
+
+                            return (
+                                <div>
+                                <p>Count: {state.count}</p>
+                                <button onClick={() => dispatch({ type: 'increment' })}>+</button>
+                                <button onClick={() => dispatch({ type: 'decrement' })}>-</button>
+                                </div>
+                            );
+                        }
+
+     - Lazy Initialization: If the initial state is expensive to calculate, you can pass a function to useReducer
+
+                    const [state, dispatch] = useReducer(reducer, initialArg, init);
+                    function init(initialArg) {
+                        return { count: initialArg };
+                    }
+
+     - Multiple Dispatches: Dispatch multiple actions based on different logic
+
+                    dispatch({ type: 'increment' });
+                    dispatch({ type: 'decrement' });
+
+              
 
 
 
