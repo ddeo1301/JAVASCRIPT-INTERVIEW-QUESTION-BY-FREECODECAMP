@@ -36,6 +36,7 @@ Q2) what is middleware
 
 
 Q3) what are some commonly  used timing feature of node .js ?
+
       - setTimeout(): execute a fn after specific delay. If you want to print a message after 2 seconds, you use setTimeout.
 
       - clearTimeout(): Cancels a timeout that was previously set with setTimeout. If you set a timeout to
@@ -104,7 +105,7 @@ Q6) what is event loop?
  -  Repeat: The event loop continues this process, ensuring that the call stack is always empty before taking the next function from the callback queue.
 
   In essence, the event loop orchestrates the flow of tasks in JavaScript, ensuring that asynchronous operations are handled effectively without blocking the main thread, thus enabling the application to remain responsive.
-  
+
       console.log('Start');
 
       setTimeout(() => {
