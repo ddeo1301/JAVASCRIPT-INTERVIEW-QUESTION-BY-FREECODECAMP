@@ -1,14 +1,14 @@
 AUTHENTICATION
   - Authentication is about verifying who a user is. When a user tries to log into a system, the system needs to check their identity. This usually involves:
-   - User provides credentials: The user enters their username and password.
-   - System verifies credentials: The system checks if these credentials match what's stored in the database.
-   - User is authenticated: If the credentials are correct, the user is authenticated and can access the system.
+    - User provides credentials: The user enters their username and password.
+    - System verifies credentials: The system checks if these credentials match what's stored in the database.
+    - User is authenticated: If the credentials are correct, the user is authenticated and can access the system.
 
 AUTHENTICATION BEST PRACTISES
    - Use HTTPS: Always use HTTPS to secure data transmission between the client and server, especially when handling login credentials.
-    - Password Hashing: Store passwords securely by hashing and salting them. Libraries like bcrypt can help with this.
-    - Multi-Factor Authentication (MFA): Implement MFA to add an extra layer of security. This could involve something the user knows (password) and something they have (e.g., a mobile app token).
-    - Session Management: Use secure and random session tokens to manage user sessions.
+   - Password Hashing: Store passwords securely by hashing and salting them. Libraries like bcrypt can help with this.
+   - Multi-Factor Authentication (MFA): Implement MFA to add an extra layer of security. This could involve something the user knows (password) and something they have (e.g., a mobile app token).
+   - Session Management: Use secure and random session tokens to manage user sessions.
 
 JSON Web Tokens are a popular way to implement authentication and authorization in Node.js. Users receive a token upon login, which they include in subsequent requests. 
 
