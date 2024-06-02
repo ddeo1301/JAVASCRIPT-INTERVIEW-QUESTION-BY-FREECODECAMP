@@ -133,7 +133,7 @@ Q2) HOW ROUTING WORKS IN LATEST VERSION OF REACT
          - You can create dynamic routes by using route parameters. For example, if you want to create a
           route for user profiles, you can define a path with a parameter
 
-            <Route path="/user/:id" component={UserProfile} />
+                <Route path="/user/:id" component={UserProfile} />
 
         UserProfile component will receive the id parameter via the match prop.
     
