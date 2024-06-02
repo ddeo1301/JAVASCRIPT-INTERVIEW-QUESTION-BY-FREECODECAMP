@@ -193,6 +193,62 @@ Q) DIFFERENT TYPES OF HOOKS IN REACT
                     dispatch({ type: 'increment' });
                     dispatch({ type: 'decrement' });
 
+
+     6) USE CALLBACK HOOKS
+          - Used to memoize a function.
+          - Returns a memoized function.
+
+                        const memoizedCallback = useCallback(() => {
+                        // callback logic
+                        }, [dependencies]);
+
+          - Use when you want to avoid creating a new function every render, particularly useful when passing
+           functions to child components to prevent unnecessary re-renders.
+          - useCallback is for memoizing functions to prevent unnecessary re-creations.
+
+                                    import React, { useState, useCallback } from 'react';
+
+                                    function Parent() {
+                                    const [count, setCount] = useState(0);
+
+                                    const increment = useCallback(() => {
+                                        setCount(c => c + 1);
+                                    }, []);
+
+                                    return <Child increment={increment} />;
+                                    }
+
+                                    function Child({ increment }) {
+                                    return <button onClick={increment}>Increment</button>;
+                                    }
+
+        useCallback ensures that the increment function is not recreated on every render, preventing the 
+        Child component from re-rendering unnecessarily.
+
+     7) USE MEMO HOOKS
+          - Used to memoize a value.
+          - Returns a memoized value.
+
+                        const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
+
+          - Use when you have an expensive computation that you don’t want to re-run on every render unless
+           certain dependencies change.
+          - useMemo is for memoizing values to avoid expensive recalculations.
+
+                            import React, { useState, useMemo } from 'react';
+
+                            function ExpensiveComponent({ a, b }) {
+                            const computeExpensiveValue = (a, b) => {
+                                // some expensive computation
+                                return a + b;
+                            };
+
+                            const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
+
+                            return <div>{memoizedValue}</div>;
+                            }
+
+        useMemo ensures that computeExpensiveValue is only recalculated when a or b changes, optimizing performance by avoiding unnecessary calculations.
               
 
 
