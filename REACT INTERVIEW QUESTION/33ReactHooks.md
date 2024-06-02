@@ -209,17 +209,17 @@ Q) DIFFERENT TYPES OF HOOKS IN REACT
                                     import React, { useState, useCallback } from 'react';
 
                                     function Parent() {
-                                    const [count, setCount] = useState(0);
+                                        const [count, setCount] = useState(0);
 
-                                    const increment = useCallback(() => {
-                                        setCount(c => c + 1);
-                                    }, []);
+                                        const increment = useCallback(() => {
+                                            setCount(c => c + 1);
+                                        }, []);
 
-                                    return <Child increment={increment} />;
+                                        return <Child increment={increment} />;
                                     }
 
                                     function Child({ increment }) {
-                                    return <button onClick={increment}>Increment</button>;
+                                        return <button onClick={increment}>Increment</button>;
                                     }
 
         useCallback ensures that the increment function is not recreated on every render, preventing the 
@@ -238,14 +238,14 @@ Q) DIFFERENT TYPES OF HOOKS IN REACT
                             import React, { useState, useMemo } from 'react';
 
                             function ExpensiveComponent({ a, b }) {
-                            const computeExpensiveValue = (a, b) => {
-                                // some expensive computation
-                                return a + b;
-                            };
+                                const computeExpensiveValue = (a, b) => {
+                                    // some expensive computation
+                                    return a + b;
+                                };
 
-                            const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
+                                const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 
-                            return <div>{memoizedValue}</div>;
+                                 return <div>{memoizedValue}</div>;
                             }
 
         useMemo ensures that computeExpensiveValue is only recalculated when a or b changes, optimizing performance by avoiding unnecessary calculations.
