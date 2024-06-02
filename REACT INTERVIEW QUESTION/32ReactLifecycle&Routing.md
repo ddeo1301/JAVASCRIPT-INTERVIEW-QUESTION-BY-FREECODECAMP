@@ -1,4 +1,4 @@
-Q1) What is Life cycle method in react with proper explanation?
+Q1) LIFECYCLE METHOD IN REACT
  - In React, a life cycle method refers to special methods in a React component that get called at different stages of the component's life cycle. The life cycle of a React component can be divided into three main phases:
     1) Mounting: When the component is being created and inserted into the DOM.
     2) Updating: When the component is being re-rendered as a result of changes to its state or props.
@@ -99,3 +99,61 @@ Q1) What is Life cycle method in react with proper explanation?
 
                 export default MyComponent;
 
+
+
+Q2) DEBOUNCING IN REACT 
+   - Debouncing is a strategy used to improve the performance of a feature by controlling the time at which a function should be executed.
+   - Debouncing accepts a function and transforms it in to an updated (debounced) function so that the code inside the original function is executed after a certain period of time.
+   - If the debounced function is called again within that period, the previous timer is reset and a new timer is started for this function call. The process repeats for each function call.
+
+Imagine you have a button that can be clicked, but sometimes users accidentally click it multiple times in quick succession, triggering multiple actions when you only want one. Debouncing in React helps solve this by delaying the execution of a function until after a certain amount of time has passed since the last time it was called.
+
+Here's a simple explanation of how you might implement debouncing in React:
+ 1) Import React and useState: 
+      - First, you'll need to import React and useState if you're not using class components.
+ 2) Create a State for Tracking Delay: 
+      - Set up a state variable to keep track of the time delay.
+ 3) Create a Debounced Function: 
+      - Write a function that uses setTimeout to delay the execution of another function. 
+      - This function will be the one you want to debounce.
+ 4) UseEffect for Cleanup: 
+      - Inside a useEffect hook, set up cleanup code to clear the timeout whenever the component unmounts or
+       the delay changes.
+ 5) Attach Debounced Function to Event: 
+      - Attach the debounced function to the event you want to debounce, such as a button click.
+ 6) Adjust Delay as Needed: 
+      - You can adjust the delay time according to your needs.
+
+
+                            import React, { useState, useEffect } from 'react';
+
+                            function DebouncedButton() {
+                                const [delay, setDelay] = useState(300); // 300ms delay
+
+                                useEffect(() => {
+                                    return () => clearTimeout(debounceTimer);
+                                }, [delay]);
+
+                                let debounceTimer;
+
+                                const debouncedFunction = () => {
+                                    clearTimeout(debounceTimer);
+                                    debounceTimer = setTimeout(() => {
+                                        // Do something when the delay has passed
+                                        console.log('Button clicked, but debounced!');
+                                    }, delay);
+                                };
+
+                                return (
+                                    <div>
+                                        <button onClick={debouncedFunction}>Click Me</button>
+                                    </div>
+                                );
+                            }
+
+                            export default DebouncedButton;
+
+
+    In this example, the debouncedFunction will only execute after the specified delay (in this case, 300 
+    milliseconds) has passed since the last time it was called. Adjust the delay value as needed for your 
+    specific use case.
