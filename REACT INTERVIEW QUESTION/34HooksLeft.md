@@ -130,7 +130,7 @@ Q2) HOW ROUTING WORKS IN LATEST VERSION OF REACT
         - This allows for smooth navigation and a better user experience in your SPA.
 
     5) Dynamic Routes:
-         - You can create dynamic routes by using route parameters. For example, if you want to create a
+        - You can create dynamic routes by using route parameters. For example, if you want to create a
           route for user profiles, you can define a path with a parameter
 
                 <Route path="/user/:id" component={UserProfile} />
@@ -138,7 +138,7 @@ Q2) HOW ROUTING WORKS IN LATEST VERSION OF REACT
         UserProfile component will receive the id parameter via the match prop.
     
     6) Nested Routes:
-         - You can create nested routes by placing Route components inside other components:
+        - You can create nested routes by placing Route components inside other components:
 
                 function Dashboard() {
                     return (
