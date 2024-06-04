@@ -25,6 +25,8 @@ Q) DIFFERENCE BETWEEN MYSQL AND NOSQL
         strict data consistency.
         - NoSQL databases are better suited for applications that handle large amounts of unstructured or
          dynamic data, such as social media platforms, content management systems, or real-time analytics.
-         
-    In summary, MySQL is a traditional relational database that excels in structured data management and complex transactions, while NoSQL databases offer flexibility and scalability for handling large amounts of unstructured data.
+
+    In summary, MySQL is a traditional relational database that excels in structured data management and
+     complex transactions, while NoSQL databases offer flexibility and scalability for handling large amounts
+      of unstructured data.
     
