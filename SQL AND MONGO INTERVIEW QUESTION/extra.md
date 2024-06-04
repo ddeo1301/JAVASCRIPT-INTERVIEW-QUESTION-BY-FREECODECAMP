@@ -1,10 +1,10 @@
 Q) DIFFERENCE BETWEEN MYSQL AND NOSQL
-    1) Structure:
-        - MySQL is a relational database that uses a tabular structure, where data is stored in tables with
+   1) Structure:
+       - MySQL is a relational database that uses a tabular structure, where data is stored in tables with
          predefined schemas.
         - NoSQL databases are non-relational and use flexible data structures such as documents, key-value
          pairs, graphs, or wide-column stores.
-    2) Scalability:
+   2) Scalability:
         - MySQL is vertically scalable, meaning it can handle increased load by increasing the power of the
          hardware.
         - NoSQL databases are horizontally scalable, meaning they can handle increased load by adding more
