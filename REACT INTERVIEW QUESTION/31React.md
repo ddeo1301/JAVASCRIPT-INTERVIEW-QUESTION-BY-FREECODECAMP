@@ -8,49 +8,53 @@ Q1) what is REACT and how this work behind the scene?
         - Each component can maintain its own state and can be nested within other components.
 
     2) JSX:
-        - JSX stands for JavaScript XML, JSX provides a syntax for writing HTML-like code within JavaScript, making React components more readable and expressive.
+        - JSX stands for JavaScript XML, JSX allows us to write HTML like syntax inside our JS code and will enable
+        us to build React component that look like standared HTML markup. It is syntax extension while React is JS library
+        -  JSX looks like HTML, but under the hood it is transformed into plain JS object. We cant return two object
+        from a fn without wrapping them into an array
         
     3) State and Props:
         - State: 
-             - State is a component's internal data that can change over time.
-             - State is mutable, meaning it can be updated and changed.
-             -  State is used to manage data that changes within a component, such as user input or dynamic data that affects the component's behavior or appearance. 
+             - State is built in React object that is use to contain data or information about the component
+             - State is mutable, meaning it can be updated and changed using this.setState
+             - can only be used in class component 
+             - whenever state variables updates react rerenders the component
         - Props: 
-            - Short for properties, these are read-only attributes passed from parent components to child components.
+            - Short for properties, these are read-only attributes passed from parent components to child components OR used to pass data and event handler to the children components
             - Props are immutable, meaning they cannot be changed once set by the parent component.
-            - Props are used to pass data from a parent component to a child component, allowing for a unidirectional data flow.
+            - can be used in both class and functional component
 
                     // Using State
                     import React, { useState } from 'react';
 
                     function Counter() {
-                    const [count, setCount] = useState(0);
+                        const [count, setCount] = useState(0);
 
-                    function handleClick() {
-                        setCount(count + 1);
-                    }
+                        function handleClick() {
+                            setCount(count + 1);
+                        }
 
-                    return (
-                        <div>
-                        <p>Count: {count}</p>
-                        <button onClick={handleClick}>Increment</button>
-                        </div>
-                    );
+                        return (
+                            <div>
+                            <p>Count: {count}</p>
+                            <button onClick={handleClick}>Increment</button>
+                            </div>
+                        );
                     }
 
                     // Using Props
                     import React from 'react';
 
                     function Welcome(props) {
-                    return <h1>Hello, {props.name}!</h1>;
+                        return <h1>Hello, {props.name}!</h1>;
                     }
 
                     function ParentComponent() {
-                    return (
-                        <div>
-                        <Welcome name="John" />
-                        </div>
-                    );
+                        return (
+                            <div>
+                            <Welcome name="John" />
+                            </div>
+                        );
                     }
                     
     In the first example, the Counter component uses state to manage its internal count, which can be updated when the button is clicked. In the second example, the Welcome component uses props to display a personalized greeting, which is passed from the ParentComponent.
@@ -79,19 +83,20 @@ Q1) what is REACT and how this work behind the scene?
                 import React, { useState } from 'react';
 
                 function Counter() {
-                // Declare a state variable named count
-                const [count, setCount] = useState(0);
-                // State Hook: useState(0) initializes the state variable count to 0 and provides a function setCount to update it.
+                    // Declare a state variable named count
+                    const [count, setCount] = useState(0);
+                    // State Hook: useState(0) initializes the state variable count to 0 and provides a function 
+                    setCount to update it.
 
                 return (
-                    <div>
-                    <p>You clicked {count} times</p>
-                    // Event Handler: The onClick event of the button calls setCount(count + 1) to increment the count.
-                    <button onClick={() => setCount(count + 1)}>
-                        Click me
-                    </button>
-                    </div>
-                );
+                        <div>
+                        <p>You clicked {count} times</p>
+                        // Event Handler: The onClick event of the button calls setCount(count + 1) to increment the count.
+                        <button onClick={() => setCount(count + 1)}>
+                            Click me
+                        </button>
+                        </div>
+                    );
                 }
 
                 export default Counter;
